@@ -1,0 +1,3 @@
+gifsplashSearch.controller('GifSplashSearchController', [function() {
+  
+}]);

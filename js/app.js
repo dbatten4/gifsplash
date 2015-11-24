@@ -1,1 +1,1 @@
-var gifsplashSearch = angular.module('GitUserSearch', ['ngResource']);
+var gifsplashSearch = angular.module('GifSplashSearch', ['ngResource']);
