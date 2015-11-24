@@ -14,7 +14,8 @@
   <body ng-controller="GifSplashSearchController as searchCtrl">
     <div style="width:100%; height:100%">
       <div class="central">
-        <a  href="#" ng-click="searchCtrl.doSearch()">BOOBS</a>
+        <input type="text" ng-model="searchCtrl.searchTerm">
+        <button ng-click="searchCtrl.doSearch()">Search</button>
       </div>
       <div ng-repeat="gif in searchCtrl.searchResult" style="display:inline-block">
         <iframe ng-src="{{searchCtrl.getIframeSrc(gif.src)}}" width="100%"

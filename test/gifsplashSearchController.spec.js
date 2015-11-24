@@ -20,10 +20,26 @@ describe('GifSplashSearchController', function() {
       }
     ];
 
+    var httpBackend;
+    beforeEach(inject(function($httpBackend){
+      httpBackend = $httpBackend
+      httpBackend
+        .expectGET("http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=hello")
+        .respond(
+          { sampleGif : sampleGif } 
+        );
+    }));
+
+    afterEach(function() {
+      httpBackend.verifyNoOutstandingExpectation();
+      httpBackend.verifyNoOutstandingRequest();
+    });
+
     it('displays search results', function() {
       ctrl.searchTerm = 'hello';
       ctrl.doSearch();
-      expect(ctrl.searchResult.gifs).toEqual(sampleGif);
+      httpBackend.flush();
+      expect(ctrl.searchResult.sampleGif).toEqual(sampleGif);
     });
   });
 });
